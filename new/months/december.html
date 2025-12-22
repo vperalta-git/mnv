@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>December · Our 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { ink: "#05060a", blush: "#f6c4d4", mint: "#ff8ba7" }, animation: { float: "float 6s ease-in-out infinite", glow: "glow 8s ease-in-out infinite", bob: "bob 5s ease-in-out infinite", pop: "pop 220ms ease-out", fadeIn: "fadeIn 260ms ease-out" }, keyframes: { float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-6px)" } }, glow: { "0%, 100%": { opacity: 0.5 }, "50%": { opacity: 1 } }, bob: { "0%, 100%": { transform: "translateY(0) scale(1)" }, "35%": { transform: "translateY(-6px) scale(1.01)" }, "70%": { transform: "translateY(3px) scale(0.995)" } }, pop: { "0%": { transform: "scale(0.92)", opacity: 0 }, "60%": { transform: "scale(1.03)", opacity: 1 }, "100%": { transform: "scale(1)" } }, fadeIn: { "0%": { opacity: 0 }, "100%": { opacity: 1 } } } } } };
+  </script>
+  <style> body { background: radial-gradient(circle at 15% 20%, rgba(246, 196, 212, 0.12), transparent 30%), radial-gradient(circle at 80% 10%, rgba(183, 244, 193, 0.14), transparent 30%), #05060a; }
+    .petal-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+  </style>
+</head>
+<body class="min-h-screen text-blush antialiased">
+  <canvas id="petal-canvas" class="petal-canvas"></canvas>
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between mb-8">
+      <a href="../index.html" class="px-4 py-2 rounded-full border border-blush/60 text-blush hover:text-ink hover:bg-blush transition">← Back</a>
+      <p class="text-xs uppercase tracking-[0.3em] text-blush/70">For my Mika</p>
+    </div>
+
+    <header class="mb-8">
+      <p class="text-sm uppercase tracking-[0.2em] text-blush/70">Month</p>
+      <h1 id="month-heading" class="text-4xl font-semibold text-blush">December</h1>
+      <div class="mt-3 text-sm text-blush/70">2025</div>
+    </header>
+
+    <section class="grid gap-6 lg:grid-cols-1">
+      <div class="rounded-2xl border border-blush/30 bg-ink/70 backdrop-blur shadow-xl shadow-black/40 p-6 flex flex-col gap-3">
+        <h2 class="text-xl font-semibold text-blush">Notes</h2>
+        <p id="month-summary" class="text-sm text-blush/80">Add month note</p>
+        <p id="month-notes" class="text-sm text-mint/80 italic">Add detail here</p>
+      </div>
+    </section>
+
+    <section class="mt-8 rounded-2xl border border-blush/30 bg-ink/70 backdrop-blur shadow-xl shadow-black/40 p-6 flex flex-col gap-4">
+      <div class="flex items-center justify_between">
+        <h2 class="text-xl font-semibold text-blush">Photos</h2>
+        <span class="text-xs text-blush/60">Add in months.js</span>
+      </div>
+      <div id="photos-slot"></div>
+    </section>
+  </div>
+
+  <script type="module">
+    import { renderMonthPage, initPetals } from "../js/month-page.js";
+    renderMonthPage("december");
+    initPetals();
+  </script>
+</body>
+</html>

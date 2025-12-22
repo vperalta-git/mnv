@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#05060a",
+            blush: "#f6c4d4",
+            mint: "#ff8ba7"
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            glow: "glow 8s ease-in-out infinite",
+            bob: "bob 5s ease-in-out infinite",
+            pop: "pop 220ms ease-out",
+            fadeIn: "fadeIn 260ms ease-out"
+          },
+          keyframes: {
+            float: {
+              "0%, 100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-6px)" }
+            },
+            glow: {
+              "0%, 100%": { opacity: 0.5 },
+              "50%": { opacity: 1 }
+            },
+            bob: {
+              "0%, 100%": { transform: "translateY(0) scale(1)" },
+              "35%": { transform: "translateY(-6px) scale(1.01)" },
+              "70%": { transform: "translateY(3px) scale(0.995)" }
+            },
+            pop: {
+              "0%": { transform: "scale(0.92)", opacity: 0 },
+              "60%": { transform: "scale(1.03)", opacity: 1 },
+              "100%": { transform: "scale(1)" }
+            },
+            fadeIn: {
+              "0%": { opacity: 0 },
+              "100%": { opacity: 1 }
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at 15% 20%, rgba(246, 196, 212, 0.12), transparent 30%),
+                  radial-gradient(circle at 80% 10%, rgba(183, 244, 193, 0.14), transparent 30%),
+                  #05060a;
+    }
+
+    .petal-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-blush antialiased">
+  <canvas id="petal-canvas" class="petal-canvas"></canvas>
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30 blur-3xl bg-gradient-to-br from-blush/40 via-mint/30 to-blush/20 animate-glow"></div>
+    <div class="relative max-w-6xl mx-auto px-4 pt-12 pb-4 sm:pt-12 sm:pb-6">
+      <div class="relative overflow-hidden rounded-3xl border border-blush/30 shadow-2xl shadow-black/50 bg-ink/70 aspect-square w-full">
+        <div class="absolute inset-0">
+          <img src="./js/source/header.png" alt="Header memory" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/40 to-ink/20"></div>
+        </div>
+        <div class="relative p-6 sm:p-10 flex flex-col gap-4 h-full justify-end">
+          <p class="text-xs uppercase tracking-[0.3em] text-blush/80">For my Mika</p>
+          <h1 class="text-4xl sm:text-6xl font-semibold leading-tight text-blush">Our 2025</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-6xl mx-auto px-4 pb-16">
+    <section id="months" class="mt-6 sm:mt-10">
+      <div class="flex items-center justify-between gap-4 mb-6">
+        <h2 class="text-2xl font-semibold text-blush">Months</h2>
+        <span class="text-xs text-blush/60">Opens a dedicated page</span>
+      </div>
+      <div id="month-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <!-- Letter overlay -->
+  <div id="letter-overlay" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/90 backdrop-blur-sm">
+    <div class="absolute inset-0 bg-gradient-to-br from-blush/10 via-ink to-mint/10 pointer-events-none"></div>
+    <div class="relative max-w-xl w-full bg-ink border border-blush/40 rounded-3xl shadow-2xl shadow-black/60 overflow-hidden animate-fadeIn mx-auto">
+      <div class="absolute inset-x-0 -top-24 h-40 bg-gradient-to-b from-blush/20 to-transparent blur-3xl pointer-events-none"></div>
+      <div class="relative p-6 sm:p-8 flex flex-col gap-4">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-blush/70">For my Mika</p>
+            <h3 class="text-2xl font-semibold text-blush">An envelope is waiting</h3>
+          </div>
+          <button id="close-letter" class="text-blush/70 hover:text-blush text-sm">Skip</button>
+        </div>
+
+        <div id="envelope-card" class="relative rounded-2xl border border-blush/40 bg-gradient-to-br from-ink to-ink/70 shadow-lg shadow-black/40 p-6 flex flex-col items-center gap-4 animate-bob">
+          <div class="w-24 h-20 flex items-center justify-center">
+            <svg aria-hidden="true" viewBox="0 0 64 48" class="w-20 h-16 text-blush/80">
+              <path fill="currentColor" d="M6 8h52a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Zm26 18.6L8 12.5V38h48V12.5L32 26.6Zm0-4.4 23.7-13.5H8.3L32 22.2Z"/>
+            </svg>
+          </div>
+          <p class="text-sm text-blush/70 text-center">Tap open to see the letter.</p>
+          <button id="open-letter" class="px-5 py-2 rounded-full bg-blush text-ink font-semibold shadow-lg shadow-blush/30 hover:translate-y-[-2px] transition">Open envelope</button>
+        </div>
+
+        <div id="letter-content" class="hidden rounded-2xl border border-blush/40 bg-ink/70 shadow-lg shadow-black/40 p-5 animate-pop">
+          <p class="text-xs uppercase tracking-[0.3em] text-blush/70 mb-2">Letter</p>
+          <p class="text-sm text-blush/80 leading-relaxed">Add your letter here.</p>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 text-sm">
+          <button id="done-letter" class="px-4 py-2 rounded-full border border-mint/60 text-mint hover:bg-mint hover:text-ink transition">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="max-w-6xl mx-auto px-4 pb-12 pt-10 text-xs text-blush/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+    <span>Ready for our words and photos.</span>
+    <span>Style: black, blush, red.</span>
+  </footer>
+  <button id="reopen-letter" class="fixed bottom-5 right-5 z-40 px-4 py-2 rounded-full border border-blush/60 text-blush hover:text-ink hover:bg-blush transition shadow-lg shadow-black/40 bg-ink/80 backdrop-blur">Open letter</button>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
