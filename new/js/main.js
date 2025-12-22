@@ -1,24 +1,4 @@
-import { highlights } from "./data/highlights.js";
 import { months } from "./data/months.js";
-
-function renderHighlights() {
-  const grid = document.getElementById("highlight-grid");
-  if (!grid) return;
-  grid.innerHTML = highlights
-    .map(
-      (h) => `
-        <article class="relative overflow-hidden rounded-2xl border border-blush/30 bg-ink/70 backdrop-blur shadow-xl shadow-black/40 transition duration-300 hover:-translate-y-1">
-          <div class="absolute inset-0 bg-gradient-to-br ${h.tone} opacity-40 animate-glow"></div>
-          <div class="relative p-5 flex flex-col gap-2 min-h-[170px]">
-            <p class="text-xs uppercase tracking-[0.2em] text-blush/70">${h.date || "Add date"}</p>
-            <h3 class="text-xl font-semibold text-blush">${h.title || "Add highlight"}</h3>
-            <p class="text-sm text-blush/70">${h.blurb || "Add a line or leave blank"}</p>
-          </div>
-        </article>
-      `
-    )
-    .join("");
-}
 
 function renderMonths() {
   const grid = document.getElementById("month-grid");
@@ -38,9 +18,8 @@ function renderMonths() {
               <h3 class="text-2xl font-semibold text-blush">${m.name}</h3>
               <span class="text-xs uppercase tracking-[0.2em] text-mint/80">2025</span>
             </div>
-            <p class="text-sm text-blush/70">${m.summary || "Add month note"}</p>
-            <p class="text-sm text-mint/80 italic">${m.notes || "Add detail here"}</p>
-            <div class="text-xs text-blush/50">Tap to open month page</div>
+            <p class="text-sm text-blush/70">${m.summary || ""}</p>
+            <p class="text-sm text-mint/80 italic">${m.notes || ""}</p>
           </div>
         </a>
       `;
@@ -49,7 +28,6 @@ function renderMonths() {
     .join("");
 }
 
-renderHighlights();
 renderMonths();
 
 // Petal animation (canvas-based for smoother movement)

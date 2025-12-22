@@ -22,7 +22,7 @@ export const months = [
         { src: "/new/js/source/f2.jpg", alt: " ", caption: "u look cute carrying ur flowers, me proud of the choice" },
         { src: "/new/js/source/f3.jpg", alt: " ", caption: "me hapi u hapi hehehehe" },
         { src: "/new/js/source/f4.jpg", alt: " ", caption: "me and dawg [parang di siya masaya (si dawg)]" },
-        { src: "/new/js/source/f1.jpg", alt: " ", caption: "poor quality photo, high quality memories. sheesh?" },
+        { src: "/new/js/source/f1.jpg", alt: " ", caption: "u deserve more of these babe!" },
         { src: "/new/js/source/f6.jpg", alt: " ", caption: "I'll forever hold you dearly, like this." },
     ],
     thumbnail: "/new/js/source/f5.jpg"
@@ -123,12 +123,13 @@ export const months = [
     summary: " ",
     notes: " ",
     photos: [
-      { src: "/new/js/source/s2.jpg", alt: " ", caption: " " },
-      { src: "/new/js/source/s3.jpg", alt: " ", caption: " " },
-      { src: "/new/js/source/s4.jpg", alt: " ", caption: " " },
-      { src: "/new/js/source/s5.jpg", alt: " ", caption: " " },
-      { src: "/new/js/source/s6.jpg", alt: " ", caption: " " },
-      { src: "/new/js/source/s7.jpg", alt: " ", caption: " " },
+      { src: "/new/js/source/s2.jpg", alt: " ", caption: "my wife" },
+      { src: "/new/js/source/s3.jpg", alt: " ", caption: "look, my date is really pretty. anniv namin to and 21st bday niya !!!" },
+      { src: "/new/js/source/s4.jpg", alt: " ", caption: "super deserved!!" },
+      { src: "/new/js/source/s5.jpg", alt: " ", caption: "thanks for everything babe, ikaw kakampi ko talaga dyaan. sa lahat. mas lalo ko lang ikaw naging kakampi nung day na yan moving forward. you made me feel not alone, na may kasama ako palagi babe." },
+      { src: "/new/js/source/s6.jpg", alt: " ", caption: "back to regular programming, u studying and me sleeping on your bed" },
+      { src: "/new/js/source/s7.jpg", alt: " ", caption: "thanks sa libre, sarap neto babe!" },
+      { src: "/new/js/source/s8.jpg", alt: " ", caption: "hbd dawg" },
     ],
     thumbnail: "/new/js/source/s1.jpg"
   },
@@ -137,7 +138,12 @@ export const months = [
     color: "from-blush/30 to-mint/20",
     summary: " ",
     notes: " ",
-    photos: [],
+    photos: [
+      { src: "/new/js/source/o2.jpg", alt: " ", caption: "back to regular programming (while u stay pretty)" },
+      { src: "/new/js/source/o3.jpg", alt: " ", caption: "nagpic lang ng magkaharap tas magtatabi na tayo uli hehehehehhehe" },
+      { src: "/new/js/source/o4.jpg", alt: " ", caption: "kulang, wala ako sa chest mo na nakayakap ! aray ko bossing" },
+      { src: "/new/js/source/o5.jpg", alt: " ", caption: "biglaang antipolo, sori kung na stress ka ( • ̀ω•́ )" },
+    ],
     thumbnail: "/new/js/source/o1.jpg"
   },
   {
@@ -145,15 +151,24 @@ export const months = [
     color: "from-blush/30 to-mint/20",
     summary: " ",
     notes: " ",
-    photos: [],
-    thumbnail: "/new/js/source/n1.jpg"
+    photos: [
+      { src: "/new/js/source/n1.png", alt: " ", caption: "early jog/walking. tas excited ka mag mcdo hehehehhe. sarap kain natin nun, and thanks sa libre babe. " },
+      { src: "/new/js/source/n2.jpg", alt: " ", caption: "MOMMY 🤪" },
+      { src: "/new/js/source/n3.png", alt: " ", caption: "wish u were always smiling like this" },
+    ],
+    thumbnail: "/new/js/source/n1.png"
   },
   {
     name: "December",
     color: "from-blush/30 to-mint/20",
     summary: " ",
     notes: " ",
-    photos: [],
-    thumbnail: "/new/js/source/d1.jpg"
+    photos: [
+      { src: "/new/js/source/d2.png", alt: " ", caption: "yes im looking at u babe, excuse my foot im sorry" },
+      { src: "/new/js/source/d3.png", alt: " ", caption: "i try na patagalin yung paglalakad natin ng ganto para mas matagal pa kitang kasama babe, kasi dyan pa lang namimiss ko na ikaw" },
+      { src: "/new/js/source/d5.png", alt: " ", caption: "tas dito malungkot na uli, i see u waving oh it hurts a bit lang na we have to separate for a while again and wala di pa rin ako sanay na di kita laging makikita! i miss u rn tuloy!!!!" },
+      { src: "/new/js/source/d4.png", alt: " ", caption: "u look so sexy babe, and yes bagay sayo yung new glasses mo, i love you!" },
+    ],
+    thumbnail: "/new/js/source/d1.png"
   }
 ];

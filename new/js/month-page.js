@@ -10,7 +10,7 @@ function getMonthData(target) {
 
 function renderPhotos(list = []) {
   if (!list.length) {
-    return `<div class="rounded-xl border border-blush/25 bg-ink/80 p-4 text-sm text-blush/60">Add photos in months.js under this month: { src: "url", alt: "text", caption: "note" }.</div>`;
+    return `<div class="rounded-xl border border-blush/25 bg-ink/80 p-4 text-sm text-blush/60">No photos yet</div>`;
   }
 
   return `
@@ -21,8 +21,8 @@ function renderPhotos(list = []) {
             <figure class="rounded-2xl border border-blush/30 bg-gradient-to-br from-ink/85 via-ink/70 to-ink/60 shadow-xl shadow-black/40 p-3">
               ${p.src
                 ? `<img src="${p.src}" alt="${p.alt || ""}" class="w-full h-auto rounded-xl shadow-lg shadow-black/40 max-h-[70vh] object-contain" loading="lazy" />`
-                : `<div class="h-48 w-full bg-gradient-to-br from-blush/20 to-mint/20 flex items-center justify-center text-blush/60 text-sm rounded-xl">Add photo URL</div>`}
-              <figcaption class="px-1 pt-3 text-sm text-blush/80">${p.caption || "Caption"}</figcaption>
+                : `<div class="h-48 w-full bg-gradient-to-br from-blush/20 to-mint/20 flex items-center justify-center text-blush/60 text-sm rounded-xl">No photo</div>`}
+              <figcaption class="px-1 pt-3 text-sm text-blush/80">${p.caption || ""}</figcaption>
             </figure>
           `
         )
@@ -41,8 +41,8 @@ export function renderMonthPage(monthSlug) {
   const photosSlot = document.getElementById("photos-slot");
 
   heading.textContent = month.name;
-  summary.textContent = month.summary || "Add month note";
-  notes.textContent = month.notes || "Add detail here";
+  summary.textContent = month.summary || "";
+  notes.textContent = month.notes || "";
   photosSlot.innerHTML = renderPhotos(month.photos);
 }
 
